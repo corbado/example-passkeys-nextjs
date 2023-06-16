@@ -8,8 +8,6 @@ import {NextPage, GetServerSideProps} from "next";
 const config = new Configuration();
 config.projectID = process.env.PROJECT_ID;
 config.apiSecret = process.env.API_SECRET;
-config.issuer = "https://auth.corbado.com";
-config.jwksURI = `https://${process.env.PROJECT_ID}.auth.corbado.com/.well-known/jwks`;
 const corbado = new Corbado(config);
 
 interface User {

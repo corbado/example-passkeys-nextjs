@@ -12,13 +12,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // @ts-ignore
     const clientInfo: ClientInfo = {userAgent, remoteAddress}
-    const {corbadoSessionToken} = req.body;
+    const {corbadoAuthToken} = req.body;
     const projectID: string = process.env.NEXT_PUBLIC_PROJECT_ID as string;
     const apiSecret: string = process.env.API_SECRET as string;
 
     try {
        const response = await axios.post("https://api.corbado.com/v1/sessions/verify", {
-            token: corbadoSessionToken,
+            token: corbadoAuthToken,
             clientInfo
         }, {
             headers: {

@@ -22,15 +22,21 @@ interface Email {
     updated: string;
 }
 
+interface PhoneNumber {
+    ID: string;
+    phoneNumber: string;
+    status: string;
+}
+
 
 export default function Profile() {
     const router = useRouter();
-    const {corbadoSessionToken} = router.query as { corbadoSessionToken?: string };
+    const {corbadoAuthToken} = router.query as { corbadoAuthToken?: string };
     const [user, setUser] = useState<User | null>(null);
 
     useEffect(() => {
-        if (corbadoSessionToken) {
-            axios.post("/api/proxy", {corbadoSessionToken}, {
+        if (corbadoAuthToken) {
+            axios.post("/api/proxy", {corbadoAuthToken}, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -38,9 +44,11 @@ export default function Profile() {
                 .then(response => {
                     setUser(response.data.data.user);
                 })
-                .catch(console.error);
+                .catch(error => {
+                    console.error(error);
+                });
         }
-    }, [corbadoSessionToken]);
+    }, [corbadoAuthToken]);
 
     return (
         <div>

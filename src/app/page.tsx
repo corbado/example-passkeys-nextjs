@@ -3,10 +3,7 @@
 import Corbado from "@corbado/webcomponent";
 import {useRouter} from "next/router";
 import '@corbado/webcomponent/pkg/auth_cui.css'
-
-// @ts-ignore
 import {useEffect, useState} from "react";
-import axios from "axios";
 
 interface User {
     ID: string;
@@ -51,21 +48,6 @@ export default function Home() {
                 console.log("No user logged in");
             }
         })
-/*        const {corbadoAuthToken} = router.query as { corbadoAuthToken?: string };
-
-        if (corbadoAuthToken) {
-            axios.post("/api/proxy", {corbadoAuthToken}, {
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            })
-                .then(response => {
-                    setUser(response.data.data.user);
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-        }*/
     }, []);
 
     const handleLogout = async () => {

@@ -1,6 +1,16 @@
 import {useRouter} from 'next/router';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
+import dynamic from "next/dynamic";
+
+//import Corbado from '@corbado/webcomponent';
+const session = null;
+import('@corbado/webcomponent').then(module => {
+    const Corbado = module.default || module;
+    const session = new Corbado.Session(process.env.NEXT_PUBLIC_PROJECT_ID);
+
+    console.log(session)
+});
 
 
 interface User {
@@ -31,33 +41,42 @@ interface PhoneNumber {
 
 export default function Profile() {
     const router = useRouter();
-    const {corbadoAuthToken} = router.query as { corbadoAuthToken?: string };
     const [user, setUser] = useState<User | null>(null);
+    const [session, setSession] = useState(null);
+    //const session = new Corbado.Session(process.env.NEXT_PUBLIC_PROJECT_ID);
 
     useEffect(() => {
-        if (corbadoAuthToken) {
-            axios.post("/api/proxy", {corbadoAuthToken}, {
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+        if (session) {
+            // @ts-ignore
+            session.refresh(user => {
+                console.log(user)
             })
-                .then(response => {
-                    setUser(response.data.data.user);
-                })
-                .catch(error => {
-                    console.error(error);
-                });
         }
-    }, [corbadoAuthToken]);
+
+        console.log("User: ", user)
+
+
+    }, [session]);
+
+    const handleLogout = async () => {
+        // @ts-ignore
+        await session.logout();
+        //router.push("/");
+
+    }
 
     return (
         <div>
             <h1>Profile Page</h1>
             {/*<button onClick={handleLogout}>Logout</button>*/}
             {user &&
-                <p>
-                    {user.fullName} logged in with email address: {user.emails[0].email}
-                </p>}
+                <div>
+                    <p>
+                        {user.fullName} logged in with email address: {user.emails[0].email}
+                    </p>
+                    <button onClick={handleLogout}>Logout</button>
+                </div>
+            }
         </div>
     );
 }

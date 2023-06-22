@@ -1,5 +1,10 @@
-import Corbado from '@corbado/webcomponent';
+"use client"
+
+import Corbado from "@corbado/webcomponent";
 import {useRouter} from "next/router";
+import '@corbado/webcomponent/pkg/auth_cui.css'
+
+// @ts-ignore
 import {useEffect, useState} from "react";
 import axios from "axios";
 
@@ -29,23 +34,24 @@ interface PhoneNumber {
 }
 
 export default function Home() {
+    // @ts-ignore
     const [session, setSession] = useState<Corbado.Session | null>(null);
     const [user, setUser] = useState<User | null>(null);
-    const router = useRouter();
-    const { corbadoAuthToken } = router.query as { corbadoAuthToken?: string };
+    //const router = useRouter();
 
 
     useEffect(() => {
         const session = new Corbado.Session(process.env.NEXT_PUBLIC_PROJECT_ID || '');
         setSession(session);
 
-        session.refresh(user => {
+        session.refresh((user: User | null) => {
             if (user) {
                 console.log("User logged in: ", user);
             } else {
                 console.log("No user logged in");
             }
         })
+/*        const {corbadoAuthToken} = router.query as { corbadoAuthToken?: string };
 
         if (corbadoAuthToken) {
             axios.post("/api/proxy", {corbadoAuthToken}, {
@@ -59,40 +65,22 @@ export default function Home() {
                 .catch(error => {
                     console.error(error);
                 });
-        }
-    }, [corbadoAuthToken]);
+        }*/
+    }, []);
 
     const handleLogout = async () => {
         if (session) {
             try {
                 await session.logout();
-                router.push('/');
+                //router.push('/');
             } catch (err) {
                 console.error(err);
             }
         }
     }
 
-    let loginDialog;
-    if (user === null) {
-        loginDialog = <div>
-            <corbado-auth
-                project_id={}
-                endpoint={frontendAPI}
-                conditional="yes">
-                <input name="username" id="corbado-username" required autoComplete="webauthn"/>
-            </corbado-auth>
-        </div>
-    } else {
-        loginDialog = <div>
-            {currentUser.userID}<br/>{currentUser.userIdentifier}
-        </div>
-    }
-
     return (
         <div>
-
-
             <corbado-auth project-id={process.env.NEXT_PUBLIC_PROJECT_ID} conditional="yes">
                 <input name="username" id="corbado-username" required autoComplete="webauthn"/>
             </corbado-auth>

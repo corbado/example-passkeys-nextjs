@@ -1,89 +1,37 @@
-"use client"
+'use client';
 
-import Corbado from "@corbado/webcomponent";
-import {useRouter} from "next/router";
 import '@corbado/webcomponent/pkg/auth_cui.css'
-
 // @ts-ignore
-import {useEffect, useState} from "react";
-import axios from "axios";
+import {useEffect} from "react";
+import Head from 'next/head';
 
-interface User {
-    ID: string;
-    created: string;
-    emails: Email[];
-    fullName: string;
-    name: string;
-    phoneNumbers: PhoneNumber[];
-    status: string;
-    updated: string;
-}
 
-interface Email {
-    ID: string;
-    created: string;
-    email: string;
-    status: string;
-    updated: string;
-}
-
-interface PhoneNumber {
-    ID: string;
-    phoneNumber: string;
-    status: string;
-}
 
 export default function Home() {
-    // @ts-ignore
-    const [session, setSession] = useState<Corbado.Session | null>(null);
-    const [user, setUser] = useState<User | null>(null);
-    //const router = useRouter();
-
 
     useEffect(() => {
-        const session = new Corbado.Session(process.env.NEXT_PUBLIC_PROJECT_ID || '');
-        setSession(session);
-
-        session.refresh((user: User | null) => {
-            if (user) {
-                console.log("User logged in: ", user);
-            } else {
-                console.log("No user logged in");
-            }
-        })
-/*        const {corbadoAuthToken} = router.query as { corbadoAuthToken?: string };
-
-        if (corbadoAuthToken) {
-            axios.post("/api/proxy", {corbadoAuthToken}, {
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            })
-                .then(response => {
-                    setUser(response.data.data.user);
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-        }*/
+        import('@corbado/webcomponent');
     }, []);
-
-    const handleLogout = async () => {
-        if (session) {
-            try {
-                await session.logout();
-                //router.push('/');
-            } catch (err) {
-                console.error(err);
-            }
-        }
-    }
 
     return (
         <div>
-            <corbado-auth project-id={process.env.NEXT_PUBLIC_PROJECT_ID} conditional="yes">
-                <input name="username" id="corbado-username" required autoComplete="webauthn"/>
-            </corbado-auth>
+            <corbado-auth-provider project-id={process.env.NEXT_PUBLIC_PROJECT_ID}>
+                <div slot="unauthed">
+                    <corbado-auth project-id={process.env.NEXT_PUBLIC_PROJECT_ID} conditional="yes">
+                        <input name="username" id="corbado-username"
+                               data-input="username" required
+                               autoComplete="webauthn"/>
+                    </corbado-auth>
+                </div>
+
+                <div slot="authed">
+                    You're logged in.
+                    <corbado-logout-handler project-id={process.env.NEXT_PUBLIC_PROJECT_ID}
+                                            redirect-url="http://localhost:3000">
+                        <button>Logout</button>
+                    </corbado-logout-handler>
+                </div>
+            </corbado-auth-provider>
         </div>
     )
 }

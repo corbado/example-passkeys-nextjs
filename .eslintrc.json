@@ -1,6 +1,6 @@
 {
   "extends": "next/core-web-vitals",
-  "rules": {
-    "react/jsx-no-undef": [2, { "allowGlobals": true }]
-  }
+//  "rules": {
+//    "react/jsx-no-undef": [2, { "allowGlobals": true }]
+//  }
 }

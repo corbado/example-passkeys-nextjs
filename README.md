@@ -5,7 +5,7 @@ This is a sample implementation of the Corbado webcomponent being integrated int
 ## File structure
 
 - `src/app` contains `page.tsx`, the file where the web component is embedded
-- `delcaration.d.ts` contains some type declarations
+- `delcaration.d.ts` contains type declarations you need to add as well to make the web component work in TypeScript
 
 ## Setup
 

@@ -8,17 +8,10 @@ export const metadata = {
     description: 'Corbado example in Next.js with web component',
 }
 
-export default function RootLayout({
-                                       children,
-                                   }: {
-    children: React.ReactNode
-}) {
+export default function RootLayout({ children }: RootLayoutProps) {
     return (
         <html lang="en">
-        <head>
-            <script defer src="https://auth.corbado.com/auth.js"></script>
-        </head>
         <body className={inter.className}>{children}</body>
         </html>
-    )
+    );
 }

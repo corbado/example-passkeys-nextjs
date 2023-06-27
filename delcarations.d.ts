@@ -1,4 +1,3 @@
-/*
 declare namespace JSX {
     interface IntrinsicElements {
         'corbado-auth': any;
@@ -8,4 +7,3 @@ declare namespace JSX {
 }
 
 declare module '@corbado/webcomponent';
-*/

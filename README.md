@@ -1,4 +1,4 @@
-# Complete passkeys integration example Next.js with Corbado
+# Complete passkeys integration example for Next.js with Corbado
 
 This is a sample implementation of the Corbado webcomponent being integrated into a web application built with Next.js.
 

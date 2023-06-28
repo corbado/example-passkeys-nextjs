@@ -1,11 +1,11 @@
-# Complete passkeys integration example for Next.js with Corbado
+# Complete passkeys integration example for Next.js (TypeScript) with Corbado
 
 This is a sample implementation of the Corbado webcomponent being integrated into a web application built with Next.js.
 
 ## File structure
 
 - `src/app` contains `page.tsx`, the file where the web component is embedded
-- `delcaration.d.ts` contains type declarations you need to add as well to make the web component work in TypeScript
+- `delcarations.d.ts` contains type declarations you need to add as well to make the web component work in TypeScript
 
 ## Setup
 

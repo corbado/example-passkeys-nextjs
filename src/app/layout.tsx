@@ -8,7 +8,7 @@ export const metadata = {
     description: 'Corbado example in Next.js with web component',
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children }: {children: React.ReactNode}) {
     return (
         <html lang="en">
         <body className={inter.className}>{children}</body>

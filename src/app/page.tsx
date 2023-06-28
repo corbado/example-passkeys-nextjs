@@ -3,7 +3,6 @@ import '@corbado/webcomponent/pkg/auth_cui.css'
 import {useEffect, useState} from "react";
 
 export default function Home() {
-    const [user, setUser] = useState<User | null>(null);
     const [session, setSession] = useState(null);
 
     useEffect(() => {

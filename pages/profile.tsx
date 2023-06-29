@@ -66,17 +66,28 @@ export default function Profile() {
 
     return (
         <div>
-            <h1>Profile Page</h1>
             {user &&
                 <div>
-                    <p>
-                        User-ID: {user.userID}
-                        <br/>
-                        Email: {user.email}
-                    </p>
+                    <h1>Profile Page</h1>
+                    <div>
+                        <p>
+                            User-ID: {user.userID}
+                            <br/>
+                            Email: {user.email}
+                        </p>
+                    </div>
+                    <button onClick={handleLogout}>Logout</button>
                 </div>
             }
-            <button onClick={handleLogout}>Logout</button>
+
+            {!user &&
+                <div>
+                    <p>You're not logged in.</p>
+                    <p>Please go back to <a href="/">home</a> to log in.</p>
+                </div>
+
+            }
+
         </div>
     );
 }

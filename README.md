@@ -4,15 +4,18 @@ This is a sample implementation of the Corbado webcomponent being integrated int
 
 ## File structure
 
-- `src/app` contains `page.tsx`, the file where the web component is embedded
-- `delcarations.d.ts` contains type declarations you need to add as well to make the web component work in TypeScript
+- `src/app/page.tsx`: the file where the web component is embedded
+- `pages/profile.tsx`: displays user information if the user has successfully authenticated
+- `delcarations.d.ts`: contains type declarations you need to add as well to make the web component work in TypeScript
+- `.env`: add relevant environment variables that you can obtain
+  from [Corbado developer panel](https://app.corbado.com/signin#register)
 
 ## Setup
 
 ### Prerequisites
 
 Please follow the steps in [Getting started](https://docs.corbado.com/overview/getting-started) to create and configure
-a project in the [Corbado developer panel](https://app.corbado.com).
+a project in the [Corbado developer panel](https://app.corbado.com/signin#register).
 
 You need to have [Node](https://nodejs.org/en/download) and `npm` installed to run it.
 

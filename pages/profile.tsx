@@ -82,7 +82,7 @@ export default function Profile() {
 
             {!user &&
                 <div>
-                    <p>You're not logged in.</p>
+                    <p>You&apos;re not logged in.</p>
                     <p>Please go back to <a href="/">home</a> to log in.</p>
                 </div>
 

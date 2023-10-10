@@ -8,23 +8,8 @@ export default function Home() {
     useEffect(() => {
         // This will run only on client-side
         import('@corbado/webcomponent')
-            .then(module => {
-                const Corbado = module.default || module;
-                setSession(new Corbado.Session(process.env.NEXT_PUBLIC_PROJECT_ID));
-            })
-            .catch(err => {
-                console.log(err);
-            });
     }, []);
 
-    useEffect(() => {
-        // Refresh the session whenever it changes
-        if (session) {
-            // @ts-ignore
-            session.refresh(() => {
-            });
-        }
-    }, [session]);
     return (
         <div>
             <corbado-auth project-id={process.env.NEXT_PUBLIC_PROJECT_ID} conditional="yes">

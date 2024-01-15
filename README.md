@@ -2,6 +2,8 @@
 
 This is a sample implementation of the Corbado webcomponent being integrated into a web application built with Next.js.
 
+Please see the [full blog post](https://www.corbado.com/blog/nextjs-passkeys) to understand the detailed steps needed to integrate passkeys into Next.js apps.
+
 ## File structure
 
 - `src/app/page.tsx`: the file where the web component is embedded

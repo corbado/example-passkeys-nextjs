@@ -2,9 +2,9 @@
 import '@corbado/webcomponent/pkg/auth_cui.css'
 import {useEffect, useState} from "react";
 
-export default function Home() {
-    const [session, setSession] = useState(null);
+const projectID = process.env.NEXT_PUBLIC_PROJECT_ID;
 
+export default function Home() {
     useEffect(() => {
         // This will run only on client-side
         import('@corbado/webcomponent')
@@ -12,7 +12,7 @@ export default function Home() {
 
     return (
         <div>
-            <corbado-auth project-id={process.env.NEXT_PUBLIC_PROJECT_ID} conditional="yes">
+            <corbado-auth project-id={projectID} conditional="yes">
                 <input name="username" id="corbado-username"
                        data-input="username" required
                        autoComplete="webauthn"/>

@@ -72,8 +72,8 @@ export default function Profile() {
         <div>
           <h1>Profile Page </h1>
           <p>
-            User - ID :{user.userID}
-            <br/> Email :{user.email}
+            User-ID: {user.userID}
+            <br/> Email: {user.email}
           </p>
           <button onClick={handleLogout}>Logout</button>
         </div>

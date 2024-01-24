@@ -1,6 +1,6 @@
 # Complete passkeys integration example for Next.js (TypeScript) with Corbado
 
-This is a sample implementation of the Corbado webcomponent being integrated into a web application built with Next.js.
+This is a sample implementation of the Corbado web component being integrated into a web application built with Next.js.
 
 Please see the [full blog post](https://www.corbado.com/blog/nextjs-passkeys) to understand the detailed steps needed to integrate passkeys into Next.js apps.
 
@@ -8,7 +8,7 @@ Please see the [full blog post](https://www.corbado.com/blog/nextjs-passkeys) to
 
 - `src/app/page.tsx`: the file where the web component is embedded
 - `pages/profile.tsx`: displays user information if the user has successfully authenticated
-- `delcarations.d.ts`: contains type declarations you need to add as well to make the web component work in TypeScript
+- `declarations.d.ts`: contains type declarations you need to add as well to make the web component work in TypeScript
 - `.env`: add relevant environment variables that you can obtain
   from [Corbado developer panel](https://app.corbado.com/signin#register)
 

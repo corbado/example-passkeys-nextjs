@@ -1,4 +1,4 @@
-# Complete passkeys integration example for Next.js (TypeScript) with Corbado
+# Passkey-First Authentication Example for Next.js (TypeScript) with Corbado
 
 This is a sample implementation of the Corbado web component being integrated into a web application built with Next.js.
 

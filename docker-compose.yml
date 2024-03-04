@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  nextjs:
+    build:
+      context: .
+    ports:
+      - '5113:3000'
+    environment:
+      - NODE_ENV=production
+    user: 'nextjs' # Ensure this user is created in your Dockerfile with the appropriate permissions

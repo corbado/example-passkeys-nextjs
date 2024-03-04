@@ -1,3 +1,5 @@
+<img width="1070" alt="GitHub Repo Cover" src="https://github.com/corbado/corbado-php/assets/18458907/aa4f9df6-980b-4b24-bb2f-d71c0f480971">
+
 # Passkey-First Authentication Example for Next.js (TypeScript) with Corbado
 
 This is a sample implementation of the Corbado React package and Corbado Node SDK being integrated into a web application built with Next.js.

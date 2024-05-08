@@ -1,7 +1,7 @@
 "use client"
 
 import { useQuery } from "@tanstack/react-query"
-import { useCorbadoSession } from "@corbado/react"
+import { useCorbado } from "@corbado/react"
 import Link from "next/link"
 
 interface UserData {
@@ -11,7 +11,7 @@ interface UserData {
 
 // This logic could also be executed server-side as long as cookies are used to manage the session.
 export default function Home() {
-    const { user, shortSession, loading } = useCorbadoSession()
+    const { user, shortSession, loading } = useCorbado()
 
     const { data, isLoading, isError } = useQuery<UserData | null>({
         queryKey: ["user-data", shortSession],

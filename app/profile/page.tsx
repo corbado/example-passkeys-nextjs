@@ -9,7 +9,7 @@ export default async function Profile() {
     const cookieStore = cookies();
     const session = cookieStore.get("cbo_short_session");
     if (!session) {
-        return redirect("/auth");
+        return redirect("/");
     }
     const sdk = getNodeSDK();
     let user;
@@ -20,7 +20,7 @@ export default async function Profile() {
         }
     }
     catch {
-        return redirect("/auth");
+        return redirect("/");
     }
     return (
         <div>

@@ -1,8 +1,7 @@
 import { cookies } from "next/headers";
-import getNodeSDK from "../utils/nodeSdk";
+import getNodeSDK from "@/app/_utils/nodeSdk";
 import { redirect } from "next/navigation";
-import Link from "next/link";
-import LogoutButton from "../utils/LogoutButton";
+import LogoutButton from "@/app/_utils/LogoutButton";
 
 
 // the user data will be retrieved server side
@@ -30,7 +29,6 @@ export default async function Profile() {
             User-ID: { user.getID() }<br />
             Email: { user.getEmail() }
         </p>
-        <Link href="/">Go to Home</Link>
         <LogoutButton />
         </div>
     )

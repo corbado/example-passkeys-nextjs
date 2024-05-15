@@ -18,6 +18,9 @@ body {
   color: #333;
   font-family: inherit;
   line-height: inherit;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 a {
   color: blue;

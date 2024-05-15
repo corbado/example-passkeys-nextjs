@@ -1,8 +1,8 @@
-import { cookies } from "next/headers";
+import {cookies} from "next/headers";
 import getNodeSDK from "@/app/_utils/nodeSdk";
-import { redirect } from "next/navigation";
+import {redirect} from "next/navigation";
 import LogoutButton from "@/app/_utils/LogoutButton";
-
+import PasskeyList from "@/app/_utils/PasskeyList";
 
 // the user data will be retrieved server side
 export default async function Profile() {
@@ -18,18 +18,18 @@ export default async function Profile() {
         if (!user.isAuthenticated()) {
             throw Error;
         }
-    }
-    catch {
+    } catch {
         return redirect("/");
     }
     return (
         <div>
             <h1>Profile Page</h1>
-        <p>
-            User-ID: { user.getID() }<br />
-            Email: { user.getEmail() }
-        </p>
-        <LogoutButton />
+            <p>
+                User-ID: {user.getID()}<br/>
+                Email: {user.getEmail()}
+            </p>
+            <LogoutButton/>
+            <PasskeyList/>
         </div>
     )
 }

@@ -30,8 +30,8 @@ Use the values you obtained in [Prerequisites](#prerequisites) to configure the 
 file you create in the root folder of this project:
 
 ```sh
-NEXT_PUBLIC_PROJECT_ID=<YOUR PROJECT ID>
-API_SECRET=<YOUR API SECRET>
+NEXT_PUBLIC_CORBADO_PROJECT_ID=<YOUR PROJECT ID>
+CORBADO_API_SECRET=<YOUR API SECRET>
 ```
 
 ## Usage

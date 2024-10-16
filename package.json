@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@corbado/node-sdk": "^2.1.3",
+    "@corbado/node-sdk": "^3.0.2",
     "@corbado/react": "^2.17.0",
     "@types/node": "20.11.24",
     "@types/react": "18.2.61",
